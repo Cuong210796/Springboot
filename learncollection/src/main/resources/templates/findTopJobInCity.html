@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>findTopJobInCity</title>
+</head>
+<body>
+<h1>FindTopJobInCity</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>City</th>
+        <th>Top job</th>
+        <th>Number people</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="get: ${gets}">
+        <td th:text="${get.key}">
+        <td th:text="${get.value}"></td>
+        <td th:text="${get}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

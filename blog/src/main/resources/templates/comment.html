@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/getAll}">Back</a>
+<table border="1" width="100%" style="text-align: center">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Last Update</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.content}"></td>
+        <td th:text="${#temporals.format(post.lastUpdate, 'dd-MM-yyyy HH:mm')}"></td>
+        <td>
+            <a th:if="${post.author.id == user.id}" th:href="@{/post/edit(id = ${post.id})}">Edit</a>
+            <a th:if="${post.author.id == user.id}" th:href="@{/post/delete(id = ${post.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table><br>
+<div>
+    <span>Author: </span>
+    <span th:text="${post.author?.fullname}"></span>
+</div>
+<div>
+    <div th:each="item: ${post.comments}">
+        <h4 th:text="${item.commenter?.fullname}"></h4>
+        <p th:text="${item.content}"></p>
+        <p th:text="${#temporals.format(item.lastUpdate, 'dd-MM-yyyy HH:mm')}"></p>
+<!--        <a th:if="${post.author.id == user.id || item.commenter.id == user.id}" th:href="@{/comment/edit/(id = ${item.id})}">Edit</a>-->
+        <a th:if="${post.author.id == user.id || item.commenter.id == user.id}" th:href="@{/comment/delete/(id = ${item.id})}">Delete</a>
+    </div>
+</div><br>
+<form th:action="@{/comment}" method="post">
+    <label for="content"></label>
+    <textarea id="content" name="content" style="width: 100%"></textarea><br>
+    <input type="submit" value="Comment">
+    <input type="hidden" id="postid" name="postid" th:value="${post.id}">
+</form>
+</body>
+</html>

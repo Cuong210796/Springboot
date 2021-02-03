@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head th:replace="layout :: head">
+</head>
+
+<body>
+  <div class="container">
+    <menu th:replace="layout :: menu(title='Micro blog page')"></menu>
+    <form th:action="@{/}">
+      Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+      &nbsp;
+      <input type="submit" value="Search" />
+      &nbsp;
+      <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <div class="row mt-5 justify-content-center">
+      <div class="card mx-2 mb-3" style="max-width: 300px;" th:each="post : ${posts}">
+        <div class="card-body">
+          <h5 class="card-title" th:text="${post.title}"></h5>
+          <h6 class="card-subtitle mb-2 text-muted" th:text="${post.getUser().getFullname()}">Card subtitle</h6>
+          <h6 th:text="${post.comments.size()} + ' Comment'">số comment</h6><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJVLclRSvwuJH3LWcadnWKXkcZea7Z2tOpGg&usqp=CAU" style="width: 30px; height: 30px;">
+          <p class="card-text" th:text="${#strings.abbreviate(post.content, 100)}">content</p>
+          <a th:href="@{/post/{id}(id=${post.id})}" class="card-link">See more...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul id="pagination-demo" class="pagination-lg"></ul>
+
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="/jquery.twbsPagination.min.js"></script>
+  <script type="text/javascript" src="/JS/Js.js"></script>
+  <script type="text/javascript">
+    function clearSearch() {
+      window.location = "[[@{/}]]";
+    }
+  </script>
+</body>
+
+</html>

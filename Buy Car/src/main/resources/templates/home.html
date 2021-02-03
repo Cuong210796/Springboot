@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${appName}"></title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="icon" href="/Images/icon.png" sizes="32x32">
+</head>
+<body>
+<img th:src="@{Images/bia.png}" style="width: 100%" height="auto">
+<ul class="li"><a th:href="@{/menuCar}" style="text-decoration: none"><h2
+        style="text-align: center; margin-bottom: 40px">Danh sách loại xe</h2></a></ul>
+<div class="menu">
+    <div class="row">
+        <ul class="li col-4"><a th:href="@{/mercedesC}" style="text-decoration: none"> <img th:src="@{Images/1.png}">
+            Mercedes C</a></ul>
+        <ul class="li col-4"><a th:href="@{/mercedesGLC}" style="text-decoration: none"><img th:src="@{Images/10.png}">Mercedes
+            GLC</a></ul>
+        <ul class="li col-4"><a th:href="@{/mercedesE}" style="text-decoration: none"><img th:src="@{Images/12.png}">Mercedes
+            E</a></ul>
+        <ul class="li col-4"><a th:href="@{/mercedesS}" style="text-decoration: none"><img th:src="@{Images/6.png}">Mercedes
+            S</a></ul>
+    </div>
+</div>
+</body>
+</html>

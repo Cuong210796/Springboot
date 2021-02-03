@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="icon" href="/Images/icon.png" sizes="32x32">
+</head>
+<body>
+<img th:src="@{/Images/bia.png}" style="width: 100%;height:auto">
+<form action="#" th:action="@{/allcar/search}" method="post"
+      novalidate="novalidate" th:object="${searchrequest}">
+    <input type="text" th:field="*{keyword}" placeholder="type keyword here"/><br><br>
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>

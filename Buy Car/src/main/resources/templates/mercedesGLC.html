@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes Ben</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+</head>
+<body>
+<img th:src="@{Images/bia.png}" style="width: 100%" height="auto">
+<div class="introduce" style="text-align: center;margin-top:20px;margin-bottom: 50px"><h2>Các mẫu xe</h2></div>
+<div class="menu">
+    <div class="row">
+        <ul class="d-flex">
+            <li th:class="col-4" th:each="car: ${cars}" class="d-flex flex-column align-items-center">
+                <img th:attr="src=@{'/Images/' + ${car.id} + '.png'}, alt=${car.name}"/>
+                <span th:text="${car.name}"></span><br>
+                <span th:text="${'Năm sản xuất : ' + car.year}"></span><br>
+                <span th:text="${'Giá tiền : ' + car.price + '$'}"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

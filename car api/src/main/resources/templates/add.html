@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="icon" href="/Images/icon.png" sizes="32x32">
+</head>
+<body>
+<img th:src="@{/Images/bia.png}" style="width: 100%;height:auto">
+<form th:action="@{/allcar/save}" th:object="${car}" method="post"
+      novalidate="novalidate">
+    <input type="hidden" placeholder="id" th:field="*{id}"/><br><br>
+    <input type="text" placeholder="photo" th:field="*{photo}"/><br><br>
+    <input type="text" placeholder="name" th:field="*{name}"/><br><br>
+    <input type="text" placeholder="year" th:field="*{year}"/><br><br>
+    <input type="text" placeholder="price" th:field="*{price}"/><br><br>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

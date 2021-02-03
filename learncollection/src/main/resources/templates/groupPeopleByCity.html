@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GroupPeopleByCity</title>
+</head>
+<body>
+<h1>GroupPeopleByCity</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>City</th>
+        <th>List Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="get: ${gets}">
+        <td th:text="${get.key}">
+        <td>
+            <table>
+                <tr th:each="peo: ${get.value}">
+                    <td th:text="${peo.fullname}"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

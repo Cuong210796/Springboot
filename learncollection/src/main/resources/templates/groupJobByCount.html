@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GroupJobByCount</title>
+</head>
+<body>
+<h1>GroupJobByCount</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Job</th>
+        <th>Amount of people</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="get: ${gets}">
+        <td th:text="${get.key}">
+        <td th:text="${get.value}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Full Cities</title>
+    <link rel="icon" href="https://image.freepik.com/free-icon/important-person_318-10744.jpg" sizes="32x32">
+</head>
+<body>
+<h1>Danh sách tất cả thành phố đã được sắp xếp từ A-Z</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Full Cities</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="get: ${gets}">
+        <td th:text="${get}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>findTopJobs</title>
+</head>
+<body>
+<h1>Find Top 5 Jobs</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>job</th>
+        <th>number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="get: ${gets}">
+        <td th:text="${get.key}">
+        <td th:text="${get.value}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

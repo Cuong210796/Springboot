@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Person</title>
+    <link rel="icon" href="https://image.freepik.com/free-icon/important-person_318-10744.jpg" sizes="32x32">
+</head>
+<body>
+<div style="text-align: center ; font-size: 20px; font-weight: bold ; padding-top: 20px">
+    <a th:href="@{/getAll/getSortedCities}">Thành phố</a><br>
+    <a th:href="@{/getAll/getSortedJobs}">Nghề nghiệp</a><br>
+    <a th:href="@{/getAll/sortPeopleByFullName}">Tên</a><br>
+    <a th:href="@{/getAll/groupPeopleByCity}">groupPeopleByCity</a><br>
+    <a th:href="@{/getAll/findTop5Citis}">findTop5Citis</a><br>
+    <a th:href="@{/getAll/findTop5Jobs}">findTop5Jobs</a><br>
+    <a th:href="@{/getAll/findTopJoblnCity}">findTopJoblnCity</a><br>
+    <a th:href="@{/getAll/groupJobByCount}">groupJobByCount</a><br>
+    <a th:href="@{/getAll/groupCityByCount}">groupCityByCount</a><br>
+    <a th:href="@{/getAll/averageJobSalary}">averageJobSalary</a><br>
+    <a th:href="@{/getAll/averageJobAge}">averageJobAge</a><br>
+    <a th:href="@{/getAll/averageCityAge}">averageCityAge</a><br>
+
+</div>
+<h1>Danh sách tất cả nhân viên</h1>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Job</th>
+            <th>Gender</th>
+            <th>City</th>
+            <th>Salary</th>
+            <th>Birthday</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="get: ${gets}">
+                <td th:text="${get.id}"></td>
+                <td th:text="${get.fullname}"></td>
+                <td th:text="${get.job}"></td>
+                <td th:text="${get.gender}"></td>
+                <td th:text="${get.city}"></td>
+                <td th:text="${get.salary}"></td>
+                <td th:text="${#dates.format(get.birthday, 'dd-MM-yyyy')}"></td>
+                <td th:text="${get.age}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Full Name</title>
+    <link rel="icon" href="https://image.freepik.com/free-icon/important-person_318-10744.jpg" sizes="32x32">
+</head>
+<body>
+<h1>Danh sách sắp xếp theo tên full name từ A-Z</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Full Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="get: ${gets}">
+        <td th:text="${get.fullname}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

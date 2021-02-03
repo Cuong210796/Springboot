@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+<a th:href="@{/.}">Back</a>
+<h1 th:if="${param.id == null}">Create Post</h1>
+<h1 th:if="${param.id != null}">Edit Post</h1>
+<form th:action="@{/post/edit}" method="post" th:object="${post}">
+    <input type="text" placeholder="Title" th:field="*{title}" th:value="*{title}">
+    <input type="hidden" placeholder="Title" th:field="*{id}">
+    <br>
+    <br>
+    <textarea th:field="*{content}" th:text="*{content}"></textarea>
+    <br>
+    <br>
+    <input type="submit" th:if="${param.id == null}" value="Create">
+    <input type="submit" th:if="${param.id != null}" value="Edit">
+</form>
+</body>
+</html>

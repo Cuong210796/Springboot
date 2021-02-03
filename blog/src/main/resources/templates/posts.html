@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<h1 th:text="${user?.fullname}"></h1>
+<div style="text-align: center; font-size: 30px; " >
+  <a th:href="@{/post/edit}">Add</a><br>
+  <a th:href="@{/getAll}">All Posts</a>
+</div>
+  <h1>All Posts Me</h1>
+    <table border="1" width="100%" style="text-align: center">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Last Update</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="post: ${posts}">
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.content}"></td>
+        <td th:text="${#temporals.format(post.lastUpdate, 'dd-MM-yyyy HH:mm')}"></td>
+        <td>
+          <a th:href="@{/post/comment(id = ${post.id})}">Detail</a>
+          <a th:href="@{/post/edit(id = ${post.id})}">Edit</a>
+          <a th:href="@{/post/delete(id = ${post.id})}">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table><br>
+  <a href="/logout">Logout</a>
+</body>
+</html>

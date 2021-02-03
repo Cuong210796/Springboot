@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="icon" href="/Images/icon.png" sizes="32x32">
+</head>
+<body>
+<div>
+    <img th:src="@{/Images/bia.png}" style="width: 100%;height:auto">
+    <h2 style="text-align: center; margin-bottom: 40px">Chi tiết xe</h2>
+    <div class="one-car">
+        <img class="small-img" th:attr="src=${car.photo},alt=${car.name}"><br>
+        <h1 th:text="${car.name}"></h1><br>
+        <p th:text="${car.year}"></p><br>
+        <p th:text="${car.price}"></p><br>
+        <a th:href="@{/allcar/edit/{id}(id=${car.id})}" style="font-size: 25px">Edit car</a>
+        <a th:href="@{/allcar/delete/{id}(id=${car.id})}" style="font-size: 25px ; margin-left: 25px">Delete car</a><br>
+    </div>
+</div>
+</body>
+</html>

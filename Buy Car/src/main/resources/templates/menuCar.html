@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes Ben</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+</head>
+<body>
+<img th:src="@{Images/bia.png}" style="width: 100%" height="auto">
+<ul class="DS">
+    <li th:each="car: ${cars}" th:text="${car}"></li>
+</ul>
+</body>
+</html>
