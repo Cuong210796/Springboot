@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456
+    volumes:
+      - /var/lib/mysql
+  web:
+    image: chuchicuong1996/socket-app
+    ports:
+      - "8005:8080"
+    depends_on:
+      - mysql
